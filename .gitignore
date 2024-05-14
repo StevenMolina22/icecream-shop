@@ -20,6 +20,10 @@
 .DS_Store
 *.pem
 
+# Media db files
+pb_data
+pb_migrations
+
 # debug
 npm-debug.log*
 yarn-debug.log*
