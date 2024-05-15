@@ -24,6 +24,9 @@
 pb_data
 pb_migrations
 
+# Media
+public
+
 # debug
 npm-debug.log*
 yarn-debug.log*
