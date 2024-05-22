@@ -1,4 +1,3 @@
-import React from "react";
 import { getItems } from "../api/getItems";
 import { Product } from "@/types/products";
 import Image from "next/image";
@@ -6,9 +5,9 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import ContextTextInfo from "./ContextTextInfo";
 import UserContextProvider from "@/context/UserContext";
 import UserContextComponent from "./UserContextComponent";
+
 async function ProductsPage() {
-  const endpoint = "/api/collections/products/records";
-  const products: Product[] = await getItems(endpoint);
+  const products: Product[] = await getItems("/api/collections/products/records");
   const DB_HOST = process.env.DB_HOST;
   const mediaURL = `${DB_HOST}/api/files/${products[0].collectionId}`;
 
@@ -21,12 +20,11 @@ async function ProductsPage() {
               <ProductCard
                 image={
                   <Image
-                    src={mediaURL + "/" + product.id + "/" + product.image}
+                    src={`${mediaURL}/${product.id}/${product.image}`}
                     alt={product.name}
                     width={268}
                     height={268}
                   />
-                  // <div className="size-[268px] bg-blue-500"></div>
                 }
                 content={
                   <div className="flex flex-col">

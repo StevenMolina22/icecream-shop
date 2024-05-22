@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Providers } from "./Providers";
+import NavbarLayout from "../components/layout/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,9 +16,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const bgImage = "images/background.png";
+  const bgStyle = { backgroundImage: `url(${bgImage})` };
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="dark ">
+      <body className={inter.className}>
+        <main style={bgStyle} className="min-h-[200vh] bg-cover bg-center">
+          <NavbarLayout />
+          <Providers>{children}</Providers>
+        </main>
+      </body>
     </html>
   );
 }

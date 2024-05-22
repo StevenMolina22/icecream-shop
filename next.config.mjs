@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["localhost", "pocketbase-db-1.fly.dev"],
+    remotePatterns: [{hostname:"localhost"}, {hostname:"pocketbase-db-1.fly.dev"}],
   }
 };
 
