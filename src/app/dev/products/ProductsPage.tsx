@@ -1,4 +1,4 @@
-import { getItems } from "../api/getItems";
+import { getItems } from "../../api/getItems";
 import { Product } from "@/types/products";
 import Image from "next/image";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -7,7 +7,9 @@ import UserContextProvider from "@/context/UserContext";
 import UserContextComponent from "./UserContextComponent";
 
 async function ProductsPage() {
-  const products: Product[] = await getItems("/api/collections/products/records");
+  const products: Product[] = await getItems(
+    "/api/collections/products/records",
+  );
   const DB_HOST = process.env.DB_HOST;
   const mediaURL = `${DB_HOST}/api/files/${products[0].collectionId}`;
 

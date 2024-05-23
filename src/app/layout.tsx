@@ -16,15 +16,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const bgImage = "images/background.png";
-  const bgStyle = { backgroundImage: `url(${bgImage})` };
   return (
-    <html lang="en" className="dark ">
+    <html lang="en" className="dark">
       <body className={inter.className}>
-        <main style={bgStyle} className="min-h-[200vh] bg-cover bg-center">
-          <NavbarLayout />
-          <Providers>{children}</Providers>
-        </main>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

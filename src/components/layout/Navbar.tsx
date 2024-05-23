@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { FC } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -12,8 +12,13 @@ import {
   NavbarMenuItem,
 } from "@nextui-org/react";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
-export default function NavbarLayout() {
+type Props = {
+  className?: string;
+};
+
+export default function NavbarLayout({ className }: Props) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
@@ -34,7 +39,7 @@ export default function NavbarLayout() {
       onMenuOpenChange={setIsMenuOpen}
       shouldHideOnScroll
       isBordered
-      className="bg-background/30"
+      className={className}
     >
       <NavbarContent>
         <NavbarMenuToggle
@@ -42,36 +47,38 @@ export default function NavbarLayout() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <Image src="/icons/cream-4.png" alt="logo" width={40} height={40} />
-          <div className="flex flex-col font-bold text-inherit">
-            <p className="">DROP</p>
-            <p className="">CREAM</p>
-          </div>
+          <Link href="/">
+            <Image src="/icons/cream-4.png" alt="logo" width={40} height={40} />
+            <div className="flex flex-col font-bold text-inherit">
+              <p className="">FRUPYS</p>
+              <p className="">CREAM&apos;s</p>
+            </div>
+          </Link>
         </NavbarBrand>
       </NavbarContent>
       <NavbarContent className="hidden gap-4 sm:flex" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/">
             Home
           </Link>
         </NavbarItem>
         <NavbarItem isActive>
-          <Link href="#" aria-current="page">
+          <Link href="/about" aria-current="page">
             Know us
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Close by
+          <Link color="foreground" href="/cart">
+            My cart
           </Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
+          <Link href="/signin">Login</Link>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
+          <Button as={Link} color="primary" href="/signup" variant="flat">
             Sign Up
           </Button>
         </NavbarItem>
