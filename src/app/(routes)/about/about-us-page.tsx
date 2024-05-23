@@ -38,7 +38,7 @@ export function AboutUsPage() {
               alt="Hero"
               className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square"
               height="550"
-              src="/images/background.png"
+              src="/images/background-image.png"
               width="550"
             />
           </div>

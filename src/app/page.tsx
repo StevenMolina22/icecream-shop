@@ -8,7 +8,7 @@ import { getMediaURL } from "@/utils/mediaProducts";
 import Link from "next/link";
 
 export default async function Home() {
-  const bgImage = "images/background.png";
+  const bgImage = "images/background-image.png";
   const bgStyle = { backgroundImage: `url(${bgImage})` };
 
   const products: Product[] = await getItems(

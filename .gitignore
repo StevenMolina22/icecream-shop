@@ -30,7 +30,7 @@ pb_migrations
 pocketbase.exe
 
 # Media
-public
+public/icons
 
 # debug
 npm-debug.log*
