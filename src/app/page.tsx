@@ -18,14 +18,14 @@ export default async function Home() {
   console.log(products);
   return (
     <main style={bgStyle} className=" min-h-[200vh] bg-cover bg-center">
-      <NavbarLayout className="bg-background/30" />
+      <NavbarLayout className="bg-black/30" />
 
       <div className="flex flex-col items-center p-12">
         <div className="max-w-[800px] p-6 text-center space-y-6">
           {/* text */}
           <h1 className="text-6xl font-bold">Frupys shop</h1>
           <h2 className="text-4xl font-semibold">Ice Creams</h2>
-          <p className="font-semibold text-muted-foreground text-xl">
+          <p className="font-semibold text-muted-foreground text-2xl">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
             aspernatur ad hic culpa alias facere animi illo mollitia voluptatem
             suscipit aliquam adipisci, perspiciatis dolorem id molestias
@@ -36,7 +36,7 @@ export default async function Home() {
           <div className="space-x-4 ">
             <Link
             href={"/cart"}
-              className={buttonVariants({variant:"default", size:"lg"})}
+              className={buttonVariants({variant:"secondary", size:"lg"})}
             >
               Order now
             </Link>

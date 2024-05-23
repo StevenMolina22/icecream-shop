@@ -6,7 +6,6 @@ import {
   CardHeader,
 } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
-import { MinusIcon, PlusIcon } from "lucide-react";
 import CounterButtons from "./CounterButtons";
 
 type ProductCardProps = {
@@ -41,13 +40,13 @@ const ProductCard = ({
         <p className="mb-4 text-muted-foreground">Order Type: </p>
         <div className="mb-4 flex items-center justify-between">
           <Button
-            className="mx-1 flex-1 border-border bg-transparent"
+            className={`mx-1 flex-1 border-border bg-transparent ${variant == "translucid" && "hover:bg-black/50"}`}
             variant="outline"
           >
             On Table
           </Button>
           <Button
-            className="mx-1 flex-1 border-border bg-transparent"
+            className={`mx-1 flex-1 border-border bg-transparent ${variant == "translucid" && "hover:bg-black/50"}`}
             variant="outline"
           >
             Delivery
@@ -55,10 +54,10 @@ const ProductCard = ({
         </div>
         <div className="flex items-center">
           <p className="text-lg font-semibold">Rs. {price}/-</p>
+          {/* Footer: Price & Quantity */}
           <CounterButtons />
         </div>
       </CardContent>
-      {/* Footer: Price & Quantity */}
     </Card>
   );
 };

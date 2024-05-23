@@ -4,7 +4,7 @@ import React from "react";
 
 function SignInPage() {
   return (
-    <div className="dark">
+    <div className="swiss-theme min-h-screen bg-background">
       <NavbarLayout className="bg-transparent" />
       <SignInDisplayed />
     </div>

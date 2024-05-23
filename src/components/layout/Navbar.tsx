@@ -6,13 +6,14 @@ import {
   NavbarContent,
   NavbarItem,
   Link,
-  Button,
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
 } from "@nextui-org/react";
-import Image from "next/image";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/tailwindutils";
+import { IceCream } from "lucide-react";
+import { buttonVariants } from "../ui/button";
+
 
 type Props = {
   className?: string;
@@ -39,7 +40,7 @@ export default function NavbarLayout({ className }: Props) {
       onMenuOpenChange={setIsMenuOpen}
       shouldHideOnScroll
       isBordered
-      className={className}
+      className={`${className} text-foreground`}
     >
       <NavbarContent>
         <NavbarMenuToggle
@@ -48,8 +49,9 @@ export default function NavbarLayout({ className }: Props) {
         />
         <NavbarBrand>
           <Link href="/">
-            <Image src="/icons/cream-4.png" alt="logo" width={40} height={40} />
-            <div className="flex flex-col font-bold text-inherit">
+            {/* <Image src="/icons/cream-4.png" alt="logo" width={40} height={40} /> */}
+            <IceCream size={40} />
+            <div className="flex flex-col font-bold text-foreground">
               <p className="">FRUPYS</p>
               <p className="">CREAM&apos;s</p>
             </div>
@@ -58,29 +60,29 @@ export default function NavbarLayout({ className }: Props) {
       </NavbarContent>
       <NavbarContent className="hidden gap-4 sm:flex" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="/">
+          <Link className="text-foreground" color="foreground" href="/">
             Home
           </Link>
         </NavbarItem>
         <NavbarItem isActive>
-          <Link href="/about" aria-current="page">
+          <Link className="text-foreground" href="/about" aria-current="page">
             Know us
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/cart">
+          <Link className="text-foreground" color="foreground" href="/cart">
             My cart
           </Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Link href="/signin">Login</Link>
+          <Link className="text-foreground" href="/signin">Login</Link>
         </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="/signup" variant="flat">
+        <NavbarItem className="dark">
+          <Link href="/signup" className={buttonVariants({variant:"default"})} color="primary">
             Sign Up
-          </Button>
+          </Link>
         </NavbarItem>
       </NavbarContent>
 

@@ -9,12 +9,16 @@ import {
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
+import React from "react";
+import { getItems } from "../api/getItems";
+import { Product } from "@/types/products";
+import CounterCart from "./CounterCart";
+import { getMediaURL } from "@/utils/mediaProducts";
 
 export async function CartComponent() {
   const products: Product[] = await getItems(
     "/api/collections/products/records",
   );
-  const mediaURL = `${DB_HOST}/api/files/${products[0].collectionId}`;
 
   return (
     <div className="flex gap-6">
@@ -64,12 +68,6 @@ export async function CartComponent() {
   );
 }
 
-import React from "react";
-import { getItems } from "../api/getItems";
-import { Product } from "@/types/products";
-import { DB_HOST } from "@/lib/pocketbase";
-import CounterCart from "./CounterCart";
-import { getMediaURL } from "@/utils/mediaProducts";
 
 const Checkout = () => {
   return (

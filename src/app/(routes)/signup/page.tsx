@@ -4,7 +4,7 @@ import React from "react";
 
 function SignUpPage() {
   return (
-    <div>
+    <div className="swiss-theme min-h-screen bg-background">
       <NavbarLayout className="bg-transparent" />
       <SignUpDisplayed />
     </div>

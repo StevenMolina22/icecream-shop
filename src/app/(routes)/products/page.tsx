@@ -9,7 +9,7 @@ function ProductPage() {
     "A delicious ice cream cone with a scoop of vanilla ice cream on top. Don't miss it, you won't regret trying it . Perfect for a hot summer day! 🍦";
   const productData = { productName, productPrice, productDescription };
   return (
-    <div>
+    <div className="dark">
       <NavbarLayout />
       <ProductCardPage {...productData} />
     </div>

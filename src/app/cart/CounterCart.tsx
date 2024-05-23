@@ -1,6 +1,5 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { MinusIcon, PlusIcon, TrashIcon } from "lucide-react";
 import React, { useState } from "react";
 
@@ -17,11 +16,9 @@ function CounterCart() {
           <MinusIcon className="h-3 w-3" />
           <span className="sr-only">Decrease</span>
         </Button>
-        <Input
-          className="w-12 rounded-md border border-gray-200 dark:border-gray-800"
-          type="number"
-          value={count}
-        />
+        <span className="flex w-12 items-center justify-center rounded-md border border-gray-200 dark:border-gray-800">
+          {count}
+        </span>
         <Button onClick={increment} size="icon" variant="outline">
           <PlusIcon className="h-3 w-3" />
           <span className="sr-only">Increase</span>
