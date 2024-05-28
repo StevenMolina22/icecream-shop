@@ -10,10 +10,9 @@ import {
   NavbarMenu,
   NavbarMenuItem,
 } from "@nextui-org/react";
-import { cn } from "@/lib/tailwindutils";
+import { cn } from "@/lib/utils";
 import { IceCream } from "lucide-react";
 import { buttonVariants } from "../ui/button";
-
 
 type Props = {
   className?: string;
@@ -77,10 +76,16 @@ export default function NavbarLayout({ className }: Props) {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Link className="text-foreground" href="/signin">Login</Link>
+          <Link className="text-foreground" href="/auth/signin">
+            Login
+          </Link>
         </NavbarItem>
         <NavbarItem className="dark">
-          <Link href="/signup" className={buttonVariants({variant:"default"})} color="primary">
+          <Link
+            href="/auth/signup"
+            className={buttonVariants({ variant: "default" })}
+            color="primary"
+          >
             Sign Up
           </Link>
         </NavbarItem>

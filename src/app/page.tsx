@@ -2,10 +2,10 @@ import ProductCard from "@/app/products/ProductCard";
 import { buttonVariants } from "@/components/ui/button";
 import { getItems } from "@/app/api/getItems";
 import { Product } from "@/types/products";
-import ProductForm from "@/app/dev/products/ProductForm";
 import NavbarLayout from "@/components/layout/Navbar";
 import { getMediaURL } from "@/utils/mediaProducts";
 import Link from "next/link";
+
 
 export default async function Home() {
   const bgImage = "images/background-image.png";
@@ -15,7 +15,6 @@ export default async function Home() {
     "/api/collections/products/records",
   );
 
-  console.log(products);
   return (
     <main style={bgStyle} className=" min-h-[200vh] bg-cover bg-center">
       <NavbarLayout className="bg-black/30" />
