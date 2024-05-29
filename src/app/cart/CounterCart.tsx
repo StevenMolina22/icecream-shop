@@ -5,8 +5,8 @@ import React, { useState } from "react";
 
 function CounterCart() {
   const [count, setCount] = useState(0);
-  const increment = () => setCount((prev) => prev + 1);
-  const decrement = () => setCount((prev) => (prev > 0 ? prev - 1 : prev));
+  const increment = () => setCount(count+1);
+  const decrement = () => setCount(count > 0 ? count - 1 : count);
   const reset = () => setCount(0);
 
   return (
