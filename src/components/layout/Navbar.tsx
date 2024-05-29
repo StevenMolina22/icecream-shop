@@ -25,9 +25,9 @@ export default function NavbarLayout({ className }: Props) {
     "Profile",
     "Dashboard",
     "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
+    "Cart",
+    "About",
+    "Signin",
     "My Settings",
     "Team Settings",
     "Help & Feedback",
@@ -103,7 +103,7 @@ export default function NavbarLayout({ className }: Props) {
                     : "foreground"
               }
               className="w-full"
-              href="#"
+              href={`/${item.toLowerCase().replace(" ", "-")}`}
               size="lg"
             >
               {item}
