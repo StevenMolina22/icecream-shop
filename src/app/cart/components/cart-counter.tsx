@@ -1,13 +1,10 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { MinusIcon, PlusIcon, TrashIcon } from "lucide-react";
-import React, { useState } from "react";
+import { useCartCounter } from "../useCart";
 
-function CounterCart() {
-  const [count, setCount] = useState(0);
-  const increment = () => setCount(count+1);
-  const decrement = () => setCount(count > 0 ? count - 1 : count);
-  const reset = () => setCount(0);
+function CounterCart({ price = 0 }: { price: number }) {
+  const { count, increment, decrement, reset } = useCartCounter(price);
 
   return (
     <>

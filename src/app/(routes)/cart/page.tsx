@@ -1,4 +1,4 @@
-import { CartComponent } from "@/app/cart/cart-component";
+import { CartComponent } from "@/app/cart/cart-main";
 import NavbarLayout from "@/components/layout/Navbar";
 import React from "react";
 
