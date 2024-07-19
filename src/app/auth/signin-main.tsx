@@ -44,7 +44,7 @@ export function SignInDisplayed() {
 }
 
 export function SignInForm() {
-  const [state, formAction] = useFormState(signInAction, { erros: {} });
+  const [state, formAction] = useFormState(signInAction, { errors: {} });
   const [, setIsLoggedIn] = useAtom(isLoggedInAtom);
   if (state.record) {
     setIsLoggedIn(true);
