@@ -17,7 +17,7 @@ export async function signUpAction(prevState: any, formData: FormData) {
   await pb.collection("users").requestVerification(email);
 
   if (!record) {
-    return { errors: { text: !record && "Invalid email or password" }, record: {} };
+    return { errors: { text: !record && "Invalid email or password" }};
   }
-  return { errors: {}, record: record };
+  return { errors: {}};
 }
