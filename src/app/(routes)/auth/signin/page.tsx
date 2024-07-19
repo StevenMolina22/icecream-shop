@@ -1,4 +1,4 @@
-import { SignInDisplayed } from "@/app/auth/SignInDisplayed";
+import { SignInDisplayed } from "@/app/auth/signin-main";
 import NavbarLayout from "@/components/layout/Navbar";
 import React from "react";
 

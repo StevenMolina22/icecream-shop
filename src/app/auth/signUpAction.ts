@@ -1,8 +1,7 @@
-import db, { pb } from "@/lib/pocketbase";
-import { redirect } from "next/navigation";
+"use server";
+import { pb } from "@/lib/pocketbase";
 
-export async function signUpAction(formData: FormData) {
-  "use server";
+export async function signUpAction(prevState: any, formData: FormData) {
 
   const rawFormData = {
     name: formData.get("name"),
@@ -12,9 +11,13 @@ export async function signUpAction(formData: FormData) {
   };
   const email = rawFormData.email as string;
   const record = await pb.collection("users").create(rawFormData);
+
   console.log("Sign up action, record: ", record);
 
   await pb.collection("users").requestVerification(email);
 
-  redirect("/auth/signin")
+  if (!record) {
+    return { errors: { text: !record && "Invalid email or password" }, record: {} };
+  }
+  return { errors: {}, record: record };
 }

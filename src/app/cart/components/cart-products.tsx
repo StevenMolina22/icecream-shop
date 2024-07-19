@@ -1,12 +1,17 @@
-// "use client";
 import { Separator } from "@/components/ui/separator";
 import CounterCart from "./cart-counter";
 import Image from "next/image";
 import { getMediaURL } from "@/utils/mediaProducts";
 import { Product } from "@/types/products";
-import { PHASE_PRODUCTION_BUILD } from "next/dist/shared/lib/constants";
+import { getProducts } from "@/app/api/getItems";
 
-const CartProducts = ({ products }: { products: Product[] }) => {
+async function CartProducts ( ) {
+  const products: Product[] = await getProducts();
+  // const { data, error, isFetched } = useQuery({
+  //   queryKey: ["products"],
+  //   queryFn: getProducts,
+  //   initialData: products,
+  // });
   return (
     <div className="grid gap-4">
       {products &&

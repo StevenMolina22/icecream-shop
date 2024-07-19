@@ -1,5 +1,5 @@
 "use client";
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -12,26 +12,24 @@ import {
 } from "@nextui-org/react";
 import { cn } from "@/lib/utils";
 import { IceCream } from "lucide-react";
-import { buttonVariants } from "../ui/button";
-
+import { Button, buttonVariants } from "../ui/button";
+import { useAtom } from "jotai";
+import { isLoggedInAtom } from "@/context/authentication";
 type Props = {
   className?: string;
 };
 
 export default function NavbarLayout({ className }: Props) {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Cart",
-    "About",
-    "Signin",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
+    {name: "Profile", route: "/"},
+    {name: "Cart", route: "cart"},
+    {name: "About", route: "about"},
+    {name: "Signin", route: "auth/signin"},
+    {name: "My Settings", route: "/"},
+    {name: "Help & Feedback", route: "/"},
+    {name: "Sign Out ", route: "/"},
   ];
 
   return (
@@ -74,22 +72,7 @@ export default function NavbarLayout({ className }: Props) {
           </Link>
         </NavbarItem>
       </NavbarContent>
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link className="text-foreground" href="/auth/signin">
-            Login
-          </Link>
-        </NavbarItem>
-        <NavbarItem className="dark">
-          <Link
-            href="/auth/signup"
-            className={buttonVariants({ variant: "default" })}
-            color="primary"
-          >
-            Sign Up
-          </Link>
-        </NavbarItem>
-      </NavbarContent>
+      <AuthButtons />
 
       <NavbarMenu>
         {menuItems.map((item, index) => (
@@ -103,10 +86,10 @@ export default function NavbarLayout({ className }: Props) {
                     : "foreground"
               }
               className="w-full"
-              href={`/${item.toLowerCase().replace(" ", "-")}`}
+              href={item.route}
               size="lg"
             >
-              {item}
+              {item.name}
             </Link>
           </NavbarMenuItem>
         ))}
@@ -114,3 +97,50 @@ export default function NavbarLayout({ className }: Props) {
     </Navbar>
   );
 }
+
+const AuthButtons = () => {
+  const [isloggedIn, setIsLoggedIn] = useAtom(isLoggedInAtom);
+  const hangleLogout = () => {
+    setIsLoggedIn(false);
+    localStorage && localStorage.setItem("isLoggedIn", "false");
+  }
+
+  if (isloggedIn) {
+    return (
+      <NavbarContent justify="end">
+        <NavbarItem className="hidden lg:flex">
+          <Link className="text-foreground" href="/auth/signin">
+            Profile
+          </Link>
+        </NavbarItem>
+        <NavbarItem className="dark">
+          <Button
+          onClick={hangleLogout}
+            className={buttonVariants({ variant: "default" })}
+            color="danger"
+          >
+            Sign Out
+          </Button>
+        </NavbarItem>
+      </NavbarContent>
+    );
+  }
+  return (
+    <NavbarContent justify="end">
+      <NavbarItem className="hidden lg:flex">
+        <Link className="text-foreground" href="/auth/signin">
+          Login
+        </Link>
+      </NavbarItem>
+      <NavbarItem className="dark">
+        <Link
+          href="/auth/signup"
+          className={buttonVariants({ variant: "default" })}
+          color="primary"
+        >
+          Sign Up
+        </Link>
+      </NavbarItem>
+    </NavbarContent>
+  );
+};

@@ -22,7 +22,7 @@ const ProductCard = ({
 }: ProductCardProps) => {
   return (
     <Card
-      className={`rounded-[16px] mx-auto flex flex-col md:flex-row shadow-lg ${variant == "translucid" ? "bg-black/40 backdrop-blur-md dark" : "bg-gray-50 light"}`}
+      className={`rounded-[16px] min-w-[300px] mx-auto flex flex-col md:flex-row shadow-lg ${variant == "translucid" ? "bg-black/40 backdrop-blur-md dark" : "bg-gray-50 light"}`}
     >
       {/* Image */}
       <CardHeader className="rounded-[24px] px-0 py-4">

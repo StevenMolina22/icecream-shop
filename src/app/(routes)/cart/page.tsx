@@ -6,10 +6,10 @@ function CardPage() {
   return (
     <div className="swiss-theme bg-background min-h-screen">
       <NavbarLayout />
-      <div className="flex flex-col items-center p-6">
+      <div className="flex flex-col items-center md:p-6 p-3">
         <CartComponent />
       </div>
-      <button className=" text-primary-foreground px-4 py-2 m-6 rounded-lg">Hello world</button>
+      {/* <button className=" text-primary-foreground px-4 py-2 m-6 rounded-lg">Hello world</button> */}
     </div>
   );
 }
