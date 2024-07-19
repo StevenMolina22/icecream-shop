@@ -1,23 +1,23 @@
-// "use client";
+"use client";
 
-// import { createContext, useContext } from "react";
+import { createContext, useContext } from "react";
 
-// type Theme = {
-//   colors: {
-//     primary: string;
-//     secondary: string;
-//   };
-// };
+type Theme = {
+  colors: {
+    primary: string;
+    secondary: string;
+  };
+};
 
-// const defaultTheme: Theme = {
-//   colors: {
-//     primary: "red",
-//     secondary: "blue",
-//   },
-// };
+const defaultTheme: Theme = {
+  colors: {
+    primary: "red",
+    secondary: "blue",
+  },
+};
 
-// // Context:
-// const ThemeContext = createContext<Theme>(defaultTheme);
+// Context:
+const ThemeContext = createContext<Theme>(defaultTheme);
 
-// // Hook:
-// export const useTheme = () => useContext(ThemeContext);
+// Hook:
+export const useTheme = () => useContext(ThemeContext);
